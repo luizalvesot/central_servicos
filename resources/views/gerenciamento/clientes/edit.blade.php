@@ -1,5 +1,5 @@
 <x-app-layout>
-    <div class="container">
+    <div class="container-sm">
         <div class="row pt-3">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
@@ -12,7 +12,7 @@
         
         <form method="POST" action="{{ route('clientes.update', $cliente) }}">
             @csrf
-            <div class="row bg-light p-4 shadow-lg mt-2 mb-4 rounded">
+            <div class="row bg-gray-900 text-white p-5 shadow-lg mt-2 mb-4 rounded">
                 @method('PUT')
                 @include('gerenciamento.clientes._form-fields')
 

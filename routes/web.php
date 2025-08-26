@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Gerenciamento\Clientes\ClientesController;
+use App\Http\Controllers\Gerenciamento\ClientesController;
 
 Route::get('/', function () {
     return redirect()->route('login');
