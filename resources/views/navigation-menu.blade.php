@@ -1,13 +1,12 @@
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
+<nav x-data="{ open: false }" class="bg-gray-900 border-b border-gray-100">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
-                    <a href="{{ route('dashboard') }}" style='display: flex;'>
-                        <x-application-mark class="block h-9 w-auto" />
-                        <h4 class="h4 px-2">Eletroimídio</h4>
+                    <a href="{{ route('dashboard') }}">
+                        <x-application-mark class="block h-10 w-auto" />
                     </a>
                 </div>
 
@@ -21,7 +20,7 @@
 
             <div class="hidden sm:flex sm:items-center sm:ms-6">
                 <!-- Teams Dropdown -->
-                @if (Laravel\Jetstream\Jetstream::hasTeamFeatures())
+                {{--@if (Laravel\Jetstream\Jetstream::hasTeamFeatures())
                     <div class="ms-3 relative">
                         <x-dropdown align="right" width="60">
                             <x-slot name="trigger">
@@ -70,7 +69,7 @@
                             </x-slot>
                         </x-dropdown>
                     </div>
-                @endif
+                @endif --}}
 
                 <!-- Settings Dropdown -->
                 <div class="ms-3 relative">
