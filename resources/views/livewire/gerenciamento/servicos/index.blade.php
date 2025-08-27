@@ -2,16 +2,16 @@
     <!-- formulario -->
     <form class="row pt-2 pb-4 px-3 mb-2 mx-1 bg-gray-900 shadow rounded">
         <div class="col-md">
-            <label class="text-white"><strong>Buscar categoria de serviço</strong></label>
+            <label class="text-white"><strong>Buscar serviço</strong></label>
             <input type="text" placeholder="Digite o que procura ..." wire:model.live="termo_pesquisa" id="termo_pesquisa"
                     class="form-control border rounded">
         </div>
     </form>
 
-    <!-- tabela de categorias de serviços -->
+    <!-- tabela de serviços -->
     <div class="row table-responsive py-2 px-3 mx-1 bg-gray-900 shadow rounded">
         <table class="table table-hover table-striped table-bordered caption-top text-center">
-            <caption class="text-white">Lista de categorias de serviços</caption>
+            <caption class="text-white">Lista de serviços</caption>
             <thead>
                 <tr>
                     <th scope="col">Nome</th>
@@ -34,7 +34,7 @@
                                 data-route="{{ route('categoriaServicos.destroy', $categoriaServico) }}"
                                 data-redirect="{{ route('categoriaServicos.show', $categoriaServico) }}"
                                 id="delete{{ $categoriaServico->id }}"
-                                onclick="event.stopPropagation(); deleteData({{ $categoriaServico->id }})">
+                                onclick="deleteData({{ $categoriaServico->id }})">
                                 <i class="bi bi-trash"></i>
                             </a>
                         </td>

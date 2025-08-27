@@ -7,6 +7,9 @@
 
         <title>Eletroimídio | Serviços</title>
 
+        <!-- Icons -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+        
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
@@ -39,10 +42,18 @@
             </main>
         </div>
 
+        <!-- Footer -->
+        <footer class="pt-2 pb-2 bg-gray-100">
+            <div>
+                <p class="text-center text-secondary fw-light">© {{ date('Y') }} Copyright Luiz Alves.</p>
+            </div>
+        </footer>
+
         @stack('modals')
         @stack('scripts')
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
         @include('layouts._scripts')
         @livewireScripts
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     </body>
 </html>

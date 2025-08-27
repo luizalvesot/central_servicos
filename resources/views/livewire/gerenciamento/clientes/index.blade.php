@@ -36,7 +36,7 @@
                                 data-route="{{ route('clientes.destroy', $cliente) }}"
                                 data-redirect="{{ route('clientes.show', $cliente) }}"
                                 id="delete{{ $cliente->id }}"
-                                onclick="deleteData({{ $cliente->id }})">
+                                onclick="event.stopPropagation(); deleteData({{ $cliente->id }})">
                                 <i class="bi bi-trash"></i>
                             </a>
                         </td>
