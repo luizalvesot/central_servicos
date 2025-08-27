@@ -12,14 +12,14 @@
         
         <form method="POST" action="{{ route('clientes.update', $cliente) }}">
             @csrf
-            <div class="row bg-gray-900 text-white rounded mx-1 mb-4 p-3 justify-content-center">
+            <div class="row bg-gray-900 text-white p-5 shadow-lg mt-2 mb-4 rounded">
                 @method('PUT')
                 @include('gerenciamento.clientes._form-fields')
 
                 <div class="row text-right mt-4">
                     <div class="col">
-                        <a href="{{ route('clientes.show') }}" class="btn btn-secondary btn px-4">Voltar</a>
-                        <button type="submit" class="btn btn-primary btn px-5">Salvar</button>
+                        <a href="{{ route('clientes.show') }}" class="btn btn-secondary btn-sm px-4">Voltar</a>
+                        <button type="submit" class="btn btn-primary btn-sm active px-5">Salvar</button>
                     </div>
                 </div>
             </div>

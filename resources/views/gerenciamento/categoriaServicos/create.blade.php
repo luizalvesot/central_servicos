@@ -5,25 +5,24 @@
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="#">Página inicial</a></li>
                     <li class="breadcrumb-item"><a href="{{ route('clientes.show') }}">Clientes</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Editar</li>
+                    <li class="breadcrumb-item active" aria-current="page">Cadastro</li>
                 </ol>
             </nav>
         </div><hr>
         
-        <form method="POST" action="{{ route('clientes.update', $cliente) }}">
+        <form method="POST" action="{{ route('clientes.store') }}">
             @csrf
-            <div class="row bg-gray-900 text-white rounded mx-1 mb-4 p-3 justify-content-center">
-                @method('PUT')
+            <div class="row bg-gray-900 text-white p-4 shadow-lg mt-2 mb-4 rounded">
+
                 @include('gerenciamento.clientes._form-fields')
 
                 <div class="row text-right mt-4">
-                    <div class="col">
+                    <div class="col-md">
                         <a href="{{ route('clientes.show') }}" class="btn btn-secondary btn px-4">Voltar</a>
-                        <button type="submit" class="btn btn-primary btn px-5">Salvar</button>
+                        <button type="submit" class="btn btn-primary btn px-5">Cadastrar</button>
                     </div>
                 </div>
             </div>
-        </form>
-
+        </form> 
     </div>
 </x-app-layout>

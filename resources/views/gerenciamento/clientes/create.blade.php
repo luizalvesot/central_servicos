@@ -8,11 +8,11 @@
                     <li class="breadcrumb-item active" aria-current="page">Cadastro</li>
                 </ol>
             </nav>
-        </div><hr>
+        </div>
         
         <form method="POST" action="{{ route('clientes.store') }}">
             @csrf
-            <div class="row bg-gray-900 text-white p-4 shadow-lg mt-2 mb-4 rounded">
+            <div class="row bg-gray-900 text-white rounded mx-1 mb-4 p-3 justify-content-center">
 
                 @include('gerenciamento.clientes._form-fields')
 

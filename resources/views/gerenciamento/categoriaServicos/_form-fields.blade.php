@@ -1,5 +1,5 @@
 <div class="row my-2">
-    <div class="col-md mb-1">
+    <div class="col-md">
         <div class="form-group">
             <label for="nome_cliente"><strong>Nome </strong><strong class="text-danger"> *</strong></label>
             <input type="text" class="form-control border rounded @error('nome_cliente') is-invalid @enderror" 
@@ -12,6 +12,9 @@
             @enderror
         </div>
     </div>
+</div>
+
+<div class="row my-2">
     <div class="col-md">
         <div class="form-group">
             <label for="telefone_cliente"><strong>Telefone </strong><strong class="text-danger"> *</strong></label>
@@ -28,7 +31,7 @@
 </div>
 
 <div class="row my-2">
-    <div class="col-md mb-1">
+    <div class="col-md">
         <div class="form-group">
             <label for="documento_cliente" ><strong>Documento</strong></label>
             <input type="text" class="form-control border rounded @error('documento_cliente') is-invalid @enderror" 
@@ -41,6 +44,9 @@
             @enderror
         </div>
     </div>
+</div>
+
+<div class="row my-2">
     <div class="col-md">
         <div class="form-group">
             <label for="carteira_cliente"><strong>Carteira</strong></label>
@@ -63,7 +69,7 @@
 </div>
 
 <div class="row my-2">
-    <div class="col-md mb-1">
+    <div class="col-md">
         <div class="form-group">
             <label for="cep"><strong>CEP</strong></label>
             <input type="text" class="form-control border rounded @error('cep') is-invalid @enderror" 
@@ -76,6 +82,9 @@
             @enderror
         </div>
     </div>
+</div>
+
+<div class="row my-2">
     <div class="col-md">
         <div class="form-group">
             <label for="cidade"><strong>Cidade</strong></label>
@@ -92,7 +101,7 @@
 </div>
 
 <div class="row my-2">
-    <div class="col-md mb-1">
+    <div class="col-md">
         <div class="form-group">
             <label for="endereco"><strong>Endereco</strong></label>
             <input type="text" class="form-control border rounded @error('endereco') is-invalid @enderror" 
@@ -105,6 +114,9 @@
             @enderror
         </div>
     </div>
+</div>
+
+<div class="row my-2">
     <div class="col-md">
         <div class="form-group">
             <label for="bairro"><strong>Bairro</strong></label>
@@ -119,6 +131,7 @@
         </div>
     </div>
 </div>
+
 
 <div class="row my-2">
     <label for="obs_cliente"><strong>Observações</strong></label>
