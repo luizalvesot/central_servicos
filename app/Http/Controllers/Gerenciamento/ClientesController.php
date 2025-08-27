@@ -9,10 +9,6 @@ use App\Helpers\Swal;
 
 class ClientesController extends Controller
 {
-    public $cep_cliente = null;
-    public $cidade_cliente = null;
-    public $estado_cliente = null;
-    
     /**
      * Route: clientes/
      * Name: clientes.show

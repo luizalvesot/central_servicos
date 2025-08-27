@@ -3,23 +3,23 @@
         <div class="row pt-3">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">Página inicial</a></li>
-                    <li class="breadcrumb-item"><a href="{{ route('clientes.show') }}">Clientes</a></li>
+                    <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Página inicial</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('categoriaServicos.show') }}">Categorias de serviços</a></li>
                     <li class="breadcrumb-item active" aria-current="page">Editar</li>
                 </ol>
             </nav>
-        </div><hr>
+        </div>
         
-        <form method="POST" action="{{ route('clientes.update', $cliente) }}">
+        <form method="POST" action="{{ route('categoriaServicos.update', $categoriaServico) }}">
             @csrf
-            <div class="row bg-gray-900 text-white p-5 shadow-lg mt-2 mb-4 rounded">
+            <div class="row bg-gray-900 text-white rounded mx-1 mb-4 p-3 justify-content-center">
                 @method('PUT')
-                @include('gerenciamento.clientes._form-fields')
+                @include('gerenciamento.categoriaServicos._form-fields')
 
                 <div class="row text-right mt-4">
                     <div class="col">
-                        <a href="{{ route('clientes.show') }}" class="btn btn-secondary btn-sm px-4">Voltar</a>
-                        <button type="submit" class="btn btn-primary btn-sm active px-5">Salvar</button>
+                        <a href="{{ route('categoriaServicos.show', $categoriaServico) }}" class="btn btn-secondary px-4">Voltar</a>
+                        <button type="submit" class="btn btn-primary btn px-5">Salvar</button>
                     </div>
                 </div>
             </div>
