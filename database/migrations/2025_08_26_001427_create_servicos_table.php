@@ -21,7 +21,7 @@ return new class extends Migration
             $table->foreignId('categoria_servico_id')->constrained('categoria_servicos')->onDelete('restrict');
             $table->decimal('valor', 10, 2)->nullable();
             $table->string('status_pagamento')->default('aberto');
-            $table->foreignId('forma_pagamento_id')->constrained('forma_pagamentos')->onDelete('restrict');
+            $table->foreignId('forma_pagamento_id')->nullable()->constrained('forma_pagamentos')->onDelete('restrict');
             $table->string('status_servico')->default('a fazer');
             $table->text('obs')->nullable();
             $table->timestamps();
