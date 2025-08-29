@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Servico;
 use App\Helpers\Swal;
+use App\Models\Cliente;
+use App\Models\CategoriaServico;
 
 class ServicosController extends Controller
 {
@@ -26,7 +28,9 @@ class ServicosController extends Controller
      **/
     public function create()
     {
-        return view('gerenciamento.servicos.create');
+        $clientes = Cliente::orderBy('nome_cliente')->get(); // busca todos os clientes
+        $servicos = CategoriaServico::orderBy('nome_servico')->get();
+        return view('gerenciamento.servicos.create', compact('clientes', 'servicos'));
     }
 
     /**
@@ -79,7 +83,8 @@ class ServicosController extends Controller
      **/
     public function edit(Servico $servico)
     {
-        return view('gerenciamento.servicos.edit', compact('servico'));
+        $clientes = Cliente::orderBy('nome_cliente')->get();
+        return view('gerenciamento.servicos.edit', compact('servico', 'clientes'));
     }
 
     /**
