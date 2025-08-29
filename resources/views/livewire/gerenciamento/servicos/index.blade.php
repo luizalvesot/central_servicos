@@ -30,15 +30,15 @@
                 <select wire:model.live="status_pagamento" id="status_pagamento" class="form-control border rounded">
                     <option value="">-- Todos --</option>
                     <option value="pago">Pago</option>
-                    <option value="aberto">Aberto</option>
+                    <option value="aberta">Aberto</option>
                 </select>
             </div>
             <div class="col-md mb-1">
                 <label class="text-white"><strong>Status Serviço</strong></label>
                 <select wire:model.live="status_servico" id="status_servico" class="form-control border rounded">
                     <option value="">-- Todos --</option>
-                    <option value="pago">Concluído</option>
-                    <option value="aberto">Aberto</option>
+                    <option value="concluido">Concluído</option>
+                    <option value="aberta">Aberto</option>
                 </select>
             </div>
         </div>
@@ -67,18 +67,18 @@
                     <tr onclick="window.location='{{ route('servicos.edit', $servico) }}'" style="cursor: pointer;">
                         <td>{{ $servico->inicio }}</td>
                         <td>{{ $servico->termino }}</td>
-                        <td>{{ $servico->tempo_total }}</td>
+                        <td>{{ $servico->tempo_total ?? ' - '}}</td>
                         <td>{{ $servico->cliente->nome_cliente }}</td> 
-                        <td>{{ $servico->categoria_servico }}</td> 
-                        <td>{{ $servico->valor }}</td> 
-                        <td>{{ $servico->status_pagamento }}</td> 
-                        <td>{{ $servico->forma_pagamento }}</td> 
+                        <td>{{ $servico->categoriaServico->nome_servico ?? ' - ' }}</td> 
+                        <td>{{ $servico->valor ?? ' - '}}</td> 
+                        <td>{{ $servico->status_pagamento ?? ' - '}}</td> 
+                        <td>{{ $servico->formaPagamento ?? ' - ' }}</td> 
                         <td>{{ $servico->status_servico }}</td> 
                         <td>
                             <a class="btn btn-danger btn-sm" title="Deletar serviço"  
                                 data-token="{{ csrf_token() }}" 
                                 data-route="{{ route('servicos.destroy', $servico) }}"
-                                data-redirect="{{ route('servicos.index') }}"
+                                data-redirect="{{ route('servicos.show') }}"
                                 id="delete{{ $servico->id }}"
                                 onclick="deleteData({{ $servico->id }})">
                                 <i class="bi bi-trash"></i>
