@@ -38,11 +38,30 @@
                 <select wire:model.live="status_servico" id="status_servico" class="form-control border rounded">
                     <option value="">-- Todos --</option>
                     <option value="concluido">Concluído</option>
-                    <option value="aberta">Aberto</option>
+                    <option value="aberto">Aberto</option>
                 </select>
             </div>
         </div>
     </form>
+
+    <div class="row my-2">
+        <div class="col-md-3">
+            <p class="text-white bg-gray-900 rounded px-3 py-1 m-1 shadow"><strong>Total de serviços exibidos: {{ $servicos->count() }}</strong></p>
+        </div>
+        <div class="col-md-3">
+            <p class="text-white bg-gray-900 rounded px-3 py-1 m-1 shadow"><strong>Valor total: R$ {{ number_format($servicos->sum('valor'), 2, ',', '.') }}</strong></p>
+        </div>
+        <div class="col-md-2">
+           {{-- <p class="text-white bg-dark rounded px-4 py-1"><strong>Receber: R$ {{ number_format($servicos->sum('valor_receber'), 2, ',', '.') }}</strong></p> --}}
+            <p class="text-white bg-gray-900 rounded px-3 py-1 m-1 shadow"><strong>Receber: {{ number_format($servicos->where('status_pagamento', 'aberta')->sum('valor'), 2, ',', '.') }}</strong></p>
+        </div>
+        <div class="col-md-2">
+            <p class="text-white bg-gray-900 rounded px-3 py-1 m-1 shadow"><strong>Pagos: {{ $servicos->where('status_pagamento', 'pago')->count() }}</strong></p>
+        </div>
+        <div class="col-md-2">
+            <p class="text-white bg-gray-900 rounded px-3 py-1 m-1 shadow"><strong>Finalizados: {{ $servicos->where('status_servico', 'concluido')->count() }}</strong></p>
+        </div>
+    </div>
 
     <!-- tabela de serviços -->
     <div class="row table-responsive py-2 px-3 mx-1 bg-gray-900 shadow rounded">
@@ -65,22 +84,32 @@
             <tbody>
                 @foreach ($servicos as $servico)
                     <tr onclick="window.location='{{ route('servicos.edit', $servico) }}'" style="cursor: pointer;">
-                        <td>{{ $servico->inicio }}</td>
-                        <td>{{ $servico->termino }}</td>
-                        <td>{{ $servico->tempo_total ?? ' - '}}</td>
+                        <td>{{ \Carbon\Carbon::parse($servico->inicio)->format('d/m/Y H:i') }}</td>
+                        <td>{{ \Carbon\Carbon::parse($servico->termino)->format('d/m/Y H:i') }}</td>
+                        <td>
+                            @if($servico->tempo_total)
+                                {{ sprintf('%02d:%02d', floor($servico->tempo_total / 60), $servico->tempo_total % 60) }}
+                            @else
+                                -
+                            @endif
+                        </td>
                         <td>{{ $servico->cliente->nome_cliente }}</td> 
                         <td>{{ $servico->categoriaServico->nome_servico ?? ' - ' }}</td> 
                         <td>{{ $servico->valor ?? ' - '}}</td> 
                         <td>{{ $servico->status_pagamento ?? ' - '}}</td> 
-                        <td>{{ $servico->formaPagamento ?? ' - ' }}</td> 
-                        <td>{{ $servico->status_servico }}</td> 
+                        <td>{{ $servico->formaPagamento->nome_fpagamento ?? ' - ' }}</td> 
+                        @if($servico->status_servico == 'concluido')
+                            <td class="bg-success text-white">Concluído</td> 
+                        @else
+                            <td class="bg-danger text-white">Aberto</td>
+                        @endif
                         <td>
                             <a class="btn btn-danger btn-sm" title="Deletar serviço"  
                                 data-token="{{ csrf_token() }}" 
                                 data-route="{{ route('servicos.destroy', $servico) }}"
                                 data-redirect="{{ route('servicos.show') }}"
                                 id="delete{{ $servico->id }}"
-                                onclick="deleteData({{ $servico->id }})">
+                                onclick="event.stopPropagation(); deleteData({{ $servico->id }})">
                                 <i class="bi bi-trash"></i>
                             </a>
                         </td>
