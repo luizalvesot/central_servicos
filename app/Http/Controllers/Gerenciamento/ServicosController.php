@@ -9,6 +9,7 @@ use App\Helpers\Swal;
 use App\Models\Cliente;
 use App\Models\CategoriaServico;
 use App\Models\FormaPagamento;
+use Carbon\Carbon;
 
 class ServicosController extends Controller
 {
@@ -32,6 +33,7 @@ class ServicosController extends Controller
         $clientes = Cliente::orderBy('nome_cliente')->get(); // busca todos os clientes
         $categoriaServicos = CategoriaServico::orderBy('nome_servico')->get();
         $formaPagamentos = FormaPagamento::orderBy('nome_fpagamento')->get();
+        //$servico = Servico::all();
 
         return view('gerenciamento.servicos.create', compact('clientes', 'categoriaServicos', 'formaPagamentos'));
     }
@@ -57,10 +59,12 @@ class ServicosController extends Controller
             'obs'                => 'nullable',
         ]);
 
+        $tempo_total = Carbon::parse($request->inicio)->diffInMinutes($request->termino);
+
         Servico::create([
             'inicio'            => $request->inicio,
             'termino'           => $request->termino,
-            'tempo_total'       => $request->tempo_total,
+            'tempo_total'       => $tempo_total,
             'cliente_id'        => $request->cliente_id,
             'descricao'         => $request->descricao,
             'categoria_servico_id' => $request->categoria_servico_id,
@@ -113,10 +117,12 @@ class ServicosController extends Controller
             'obs'               => 'nullable',
         ]);
 
+        $tempo_total = Carbon::parse($request->inicio)->diffInMinutes($request->termino);
+
         $servico->update([
             'inicio'            => $request->inicio,
             'termino'           => $request->termino,
-            'tempo_total'       => $request->tempo_total,
+            'tempo_total'       => $tempo_total,
             'cliente_id'        => $request->cliente_id,
             'descricao'         => $request->descricao,
             'categoria_servico' => $request->categoria_servico,
