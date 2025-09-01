@@ -21,7 +21,9 @@ class Index extends Component
     public function render()
     {
         if (empty($this->inicio)) {
-            $this->inicio = Carbon::today()->startOfDay()->format('Y-m-d H:i:s');
+            $this->inicio = Carbon::now()->startOfMonth()->startOfDay()->format('Y-m-d H:i:s');
+            //Inicio do dia
+            //$this->inicio = Carbon::today()->startOfDay()->format('Y-m-d H:i:s');
             $this->termino = Carbon::now()->format('Y-m-d H:i:s');
         }
         
