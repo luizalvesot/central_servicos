@@ -196,7 +196,7 @@
                 <option value="aberto" {{ (isset($servico) && $servico->status_servico == 'aberto') ? 'selected' : '' }}>
                     Aberto
                 </option>
-                <option value="concluido" {{ (isset($servico) && $servico->status_pagamento == 'concluido') ? 'selected' : '' }}>
+                <option value="concluido" {{ (isset($servico) && $servico->status_servico == 'concluido') ? 'selected' : '' }}>
                     Concluído
                 </option>
             </select>
