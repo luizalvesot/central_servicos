@@ -10,7 +10,7 @@
 
     <!-- tabela de categorias de serviços -->
     <div class="row table-responsive py-2 px-3 mx-1 bg-gray-900 shadow rounded">
-        <table class="table table-hover table-striped table-bordered caption-top text-center">
+        <table class="table table-hover table-striped table-bordered caption-top text-center sortable">
             <caption class="text-white">Lista de categorias de serviços</caption>
             <thead>
                 <tr>
