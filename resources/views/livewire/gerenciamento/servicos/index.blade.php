@@ -8,26 +8,26 @@
         <div class="row">
             <div class="col-md-3 mb-1">
                 <label class="text-white"><strong>Início</strong></label>
-                <input type="datetime-local" wire:model.live="inicio" id="inicio" class="form-control border rounded">
+                <input type="datetime-local" wire:model.live="inicio" id="inicio" class="form-control py-1 border rounded">
             </div>
             <div class="col-md-3 mb-1">
                 <label class="text-white"><strong>Término</strong></label>
-                <input type="datetime-local" wire:model.live="termino" id="termino" class="form-control border rounded">
+                <input type="datetime-local" wire:model.live="termino" id="termino" class="form-control py-1 border rounded">
             </div>
             <div class="col-md mb-1">
                 <label class="text-white"><strong>Descrição</strong></label>
-                <input type="text" placeholder="Descrição" wire:model.live="descricao" id="descricao" class="form-control border rounded">
+                <input type="text" placeholder="Descrição" wire:model.live="descricao" id="descricao" class="form-control py-1 border rounded">
             </div>
         </div>
         
         <div class="row">
             <div class="col-md-6 mb-1">
                 <label class="text-white"><strong>Cliente</strong></label>
-                <input type="text" placeholder="Cliente" wire:model.live="cliente" id="cliente" class="form-control border rounded">
+                <input type="text" placeholder="Cliente" wire:model.live="cliente" id="cliente" class="form-control py-1 border rounded">
             </div>
             <div class="col-md mb-1">
                 <label class="text-white"><strong>Status Pagamento</strong></label>
-                <select wire:model.live="status_pagamento" id="status_pagamento" class="form-control border rounded">
+                <select wire:model.live="status_pagamento" id="status_pagamento" class="form-select py-1 border rounded">
                     <option value="">-- Todos --</option>
                     <option value="pago">Pago</option>
                     <option value="aberta">Aberto</option>
@@ -35,7 +35,7 @@
             </div>
             <div class="col-md mb-1">
                 <label class="text-white"><strong>Status Serviço</strong></label>
-                <select wire:model.live="status_servico" id="status_servico" class="form-control border rounded">
+                <select wire:model.live="status_servico" id="status_servico" class="form-select py-1 border rounded">
                     <option value="">-- Todos --</option>
                     <option value="concluido">Concluído</option>
                     <option value="aberto">Aberto</option>
