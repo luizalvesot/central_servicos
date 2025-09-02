@@ -44,22 +44,60 @@
         </div>
     </form>
 
+    <!-- dashboard -->
     <div class="row my-2">
-        <div class="col-md-3">
-            <p class="text-white bg-gray-900 rounded px-3 py-1 m-1 shadow"><strong>Total de serviços exibidos: {{ $servicos->count() }}</strong></p>
-        </div>
-        <div class="col-md-3">
-            <p class="text-white bg-gray-900 rounded px-3 py-1 m-1 shadow"><strong>Valor total: R$ {{ number_format($servicos->sum('valor'), 2, ',', '.') }}</strong></p>
+        <div class="col-md-2">
+            <div class="card shadow m-1 bg-gray-800 text-white text-center">
+                <div class="card-body">
+                    <h5 class="card-title h5">Ser. exibidos</h5>
+                    <p class="card-text">{{ $servicos->count() }}</p>
+                </div>
+            </div>
         </div>
         <div class="col-md-2">
-           {{-- <p class="text-white bg-dark rounded px-4 py-1"><strong>Receber: R$ {{ number_format($servicos->sum('valor_receber'), 2, ',', '.') }}</strong></p> --}}
-            <p class="text-white bg-gray-900 rounded px-3 py-1 m-1 shadow"><strong>Receber: {{ number_format($servicos->where('status_pagamento', 'aberta')->sum('valor'), 2, ',', '.') }}</strong></p>
+            <div class="card shadow m-1 bg-gray-800 text-white text-center">
+                <div class="card-body">
+                    <h5 class="card-title h5">Valor total</h5>
+                    <p class="card-text">R$ {{ number_format($servicos->sum('valor'), 2, ',', '.') }}</p>
+                </div>
+            </div> 
         </div>
         <div class="col-md-2">
-            <p class="text-white bg-gray-900 rounded px-3 py-1 m-1 shadow"><strong>Pagos: {{ $servicos->where('status_pagamento', 'pago')->count() }}</strong></p>
+            <div class="card shadow m-1 bg-gray-800 text-white text-center">
+                <div class="card-body">
+                    <h5 class="card-title h5">Receber</h5>
+                    <p class="card-text">R$ {{ number_format($servicos->where('status_pagamento', 'aberta')->sum('valor'), 2, ',', '.') }}</p>
+                </div>
+            </div> 
         </div>
         <div class="col-md-2">
-            <p class="text-white bg-gray-900 rounded px-3 py-1 m-1 shadow"><strong>Finalizados: {{ $servicos->where('status_servico', 'concluido')->count() }}</strong></p>
+            <div class="card shadow m-1 bg-gray-800 text-white text-center">
+                <div class="card-body">
+                    <h5 class="card-title h5">Pagos</h5>
+                    <p class="card-text">{{ $servicos->where('status_pagamento', 'pago')->count() }}</p>
+                </div>
+            </div> 
+        </div>
+        <div class="col-md-2">
+            @php
+                $totalMinutos = $servicos->sum('tempo_total');
+                $horas = floor($totalMinutos / 60);
+                $minutos = $totalMinutos % 60;
+            @endphp
+            <div class="card shadow m-1 bg-gray-800 text-white text-center">
+                <div class="card-body">
+                    <h5 class="card-title h5">Tempo total</h5>
+                    <p class="card-text">{{sprintf('%02d:%02d', $horas, $minutos)}}</p>
+                </div>
+            </div> 
+        </div>
+        <div class="col-md-2">
+            <div class="card shadow m-1 bg-gray-800 text-white text-center">
+                <div class="card-body">
+                    <h5 class="card-title h5">Finalizados</h5>
+                    <p class="card-text">{{ $servicos->where('status_servico', 'concluido')->count() }}</p>
+                </div>
+            </div> 
         </div>
     </div>
 
@@ -82,7 +120,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($servicos as $servico)
+                @forelse ($servicos as $servico)
                     <tr onclick="window.location='{{ route('servicos.edit', $servico) }}'" style="cursor: pointer;">
                         <td>{{ \Carbon\Carbon::parse($servico->inicio)->format('d/m/Y H:i') }}</td>
                         <td>{{ \Carbon\Carbon::parse($servico->termino)->format('d/m/Y H:i') }}</td>
@@ -99,9 +137,9 @@
                         <td>{{ $servico->status_pagamento ?? ' - '}}</td> 
                         <td>{{ $servico->formaPagamento->nome_fpagamento ?? ' - ' }}</td> 
                         @if($servico->status_servico == 'concluido')
-                            <td class="bg-success text-white">Concluído</td> 
+                            <td><button class="btn btn-success btn-sm">Concluído</button></td> 
                         @else
-                            <td class="bg-danger text-white">Aberto</td>
+                            <td><button class="btn btn-danger btn-sm">Aberto</button></td>
                         @endif
                         <td>
                             <a class="btn btn-danger btn-sm" title="Deletar serviço"  
@@ -114,7 +152,13 @@
                             </a>
                         </td>
                     </tr>
-                @endforeach
+                    @empty
+                    <tr>
+                        <td colspan="10" class="text-center">
+                            Nenhum serviço encontrado
+                        </td>
+                    </tr>
+                @endforelse
             </tbody>
         </table>
 
