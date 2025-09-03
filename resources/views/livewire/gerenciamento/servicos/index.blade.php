@@ -41,6 +41,11 @@
                     <option value="aberto">Aberto</option>
                 </select>
             </div>
+            <div class="col-md mt-auto mb-1 text-end">
+                <a href="{{ route('servicos.pdf', request()->all()) }}" class="btn btn-danger">
+                    <i class="bi bi-file-earmark-pdf"></i> Baixar PDF
+                </a>
+            </div>
         </div>
     </form>
 

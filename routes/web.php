@@ -49,6 +49,8 @@ Route::prefix('/servicos')->group(function(){
     Route::put('{servico}', [ServicosController::class, 'update'])->name('servicos.update');
 
     Route::delete('/{servico}', [ServicosController::class, 'destroy'])->name('servicos.destroy');
+
+    Route::get('/pdf', [ServicosController::class, 'exportarPdf'])->name('servicos.pdf');
 });
 
 Route::middleware([

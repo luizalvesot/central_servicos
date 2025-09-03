@@ -10,6 +10,7 @@ use App\Models\Cliente;
 use App\Models\CategoriaServico;
 use App\Models\FormaPagamento;
 use Carbon\Carbon;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class ServicosController extends Controller
 {
@@ -149,5 +150,36 @@ class ServicosController extends Controller
     public function destroy(Servico $servico)
     {
         $servico->delete();
+    }
+
+    public function exportarPdf(Request $request)
+    {
+        $query = Servico::query();
+
+        if ($request->inicio) {
+            $query->where('inicio', '>=', $request->inicio);
+        }
+        if ($request->termino) {
+            $query->where('termino', '<=', $request->termino);
+        }
+        if ($request->descricao) {
+            $query->where('descricao', 'like', "%{$request->descricao}%");
+        }
+        if ($request->cliente) {
+            $query->whereHas('cliente', function($q) use ($request) {
+                $q->where('nome_cliente', 'like', "%{$request->cliente}%");
+            });
+        }
+        if ($request->status_pagamento) {
+            $query->where('status_pagamento', $request->status_pagamento);
+        }
+        if ($request->status_servico) {
+            $query->where('status_servico', $request->status_servico);
+        }
+
+        $servicos = $query->with('cliente')->get();
+
+        $pdf = Pdf::loadView('gerenciamento.servicos.pdf', compact('servicos'));
+        return $pdf->download('relatorio-servicos.pdf');
     }
 }
