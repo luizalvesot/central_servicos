@@ -18,7 +18,7 @@ return new class extends Migration
             $table->integer('tempo_total')->nullable();
             $table->foreignId('cliente_id')->constrained('clientes')->onDelete('restrict');
             $table->string('descricao')->nullable();
-            $table->foreignId('categoria_servico_id')->constrained('categoria_servicos')->onDelete('restrict');
+            $table->foreignId('categoria_servico_id')->nullable()->constrained('categoria_servicos')->onDelete('restrict');
             $table->decimal('valor', 10, 2)->nullable();
             $table->string('status_pagamento')->default('aberto');
             $table->foreignId('forma_pagamento_id')->nullable()->constrained('forma_pagamentos')->onDelete('restrict');

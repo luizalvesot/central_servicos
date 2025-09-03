@@ -103,7 +103,7 @@
 
     <!-- tabela de serviços -->
     <div class="row table-responsive py-2 px-3 mx-1 bg-gray-900 shadow rounded">
-        <table class="table table-hover table-striped table-bordered table-sm caption-top text-center sortable">
+        <table class="table table-hover table-striped table-bordered table-sm caption-top text-center sortable" style="font-size: 0.9rem;">
             <caption class="text-white">Lista de serviços</caption>
             <thead>
                 <tr>
@@ -111,10 +111,9 @@
                     <th scope="col">Fim</th>
                     <th scope="col">Tempo</th>
                     <th scope="col">Cliente</th>
-                    <th scope="col">Categoria</th>
+                    <th scope="col">Descrição</th>
                     <th scope="col">Valor</th>
                     <th scope="col">Pag</th>
-                    <th scope="col">FP</th>
                     <th scope="col">Status</th>
                     <th scope="col"> - </th>
                 </tr>
@@ -132,10 +131,9 @@
                             @endif
                         </td>
                         <td>{{ $servico->cliente->nome_cliente }}</td> 
-                        <td>{{ $servico->categoriaServico->nome_servico ?? ' - ' }}</td> 
+                        <td>{{ $servico->descricao ?? ' - ' }}</td> 
                         <td>{{ $servico->valor ?? ' - '}}</td> 
                         <td>{{ $servico->status_pagamento ?? ' - '}}</td> 
-                        <td>{{ $servico->formaPagamento->nome_fpagamento ?? ' - ' }}</td> 
                         @if($servico->status_servico == 'concluido')
                             <td><button class="btn btn-success btn-sm">Concluído</button></td> 
                         @else

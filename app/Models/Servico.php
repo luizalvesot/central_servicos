@@ -21,10 +21,10 @@ class Servico extends Model
         'tempo_total',
         'cliente_id',
         'descricao',
-        'categoria_servico_id',
+        //'categoria_servico_id',
         'valor',
         'status_pagamento',
-        'forma_pagamento_id',
+        //'forma_pagamento_id',
         'status_servico',
         'obs'
     ];
@@ -34,7 +34,7 @@ class Servico extends Model
         return $this->belongsTo(Cliente::class);
     }
 
-    public function categoriaServico()
+    /*public function categoriaServico()
     {
         return $this->belongsTo(CategoriaServico::class, 'categoria_servico_id');
     }
@@ -42,5 +42,5 @@ class Servico extends Model
     public function formaPagamento()
     {
         return $this->belongsTo(FormaPagamento::class, 'forma_pagamento_id');
-    }
+    }*/
 }

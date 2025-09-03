@@ -23,7 +23,7 @@ Route::prefix('/clientes')->group(function(){
     Route::delete('/{cliente}', [ClientesController::class, 'destroy'])->name('clientes.destroy');
 });
 
-Route::prefix('/categoriaServicos')->group(function(){
+/*Route::prefix('/categoriaServicos')->group(function(){
     Route::get('/', [CategoriaServicosController::class, 'show'])->name('categoriaServicos.show');
     
     Route::get('/create', [CategoriaServicosController::class, 'create'])->name('categoriaServicos.create');
@@ -35,7 +35,7 @@ Route::prefix('/categoriaServicos')->group(function(){
     Route::put('{categoriaServico}', [CategoriaServicosController::class, 'update'])->name('categoriaServicos.update');
     
     Route::delete('/{categoriaServico}', [CategoriaServicosController::class, 'destroy'])->name('categoriaServicos.destroy');
-});
+});*/
 
 Route::prefix('/servicos')->group(function(){
     Route::get('/', [ServicosController::class, 'show'])->name('servicos.show');

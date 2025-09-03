@@ -51,10 +51,10 @@ class ServicosController extends Controller
             'tempo_total'        => 'nullable',
             'cliente_id'         => 'required',
             'descricao'          => 'required',
-            'categoria_servico_id' => 'required',
+            //'categoria_servico_id' => 'required',
             'valor'              => 'nullable',
             'status_pagamento'   => 'nullable',
-            'forma_pagamento_id' => 'nullable',
+            //'forma_pagamento_id' => 'nullable',
             'status_servico'     => 'nullable',
             'obs'                => 'nullable',
         ]);
@@ -67,10 +67,10 @@ class ServicosController extends Controller
             'tempo_total'       => $tempo_total,
             'cliente_id'        => $request->cliente_id,
             'descricao'         => $request->descricao,
-            'categoria_servico_id' => $request->categoria_servico_id,
+            //'categoria_servico_id' => $request->categoria_servico_id,
             'valor'             => $request->valor,
             'status_pagamento'  => $request->status_pagamento,
-            'forma_pagamento_id'   => $request->forma_pagamento_id,
+            //'forma_pagamento_id'   => $request->forma_pagamento_id,
             'status_servico'    => $request->status_servico,
             'obs'               => $request->obs,
         ]);
@@ -91,9 +91,9 @@ class ServicosController extends Controller
     public function edit(Servico $servico)
     {
         $clientes = Cliente::orderBy('nome_cliente')->get();
-        $categoriaServicos = CategoriaServico::orderBy('nome_servico')->get();
-        $formaPagamentos = FormaPagamento::orderBy('nome_fpagamento')->get();
-        return view('gerenciamento.servicos.edit', compact('servico', 'formaPagamentos', 'categoriaServicos', 'clientes'));
+        //$categoriaServicos = CategoriaServico::orderBy('nome_servico')->get();
+        //$formaPagamentos = FormaPagamento::orderBy('nome_fpagamento')->get();
+        return view('gerenciamento.servicos.edit', compact('servico',/* 'formaPagamentos', 'categoriaServicos', */'clientes'));
     }
 
     /**
@@ -109,10 +109,10 @@ class ServicosController extends Controller
             'tempo_total'       => 'nullable',
             'cliente_id'        => 'required',
             'descricao'         => 'required',
-            'categoria_servico' => 'nullable',
+            //'categoria_servico' => 'nullable',
             'valor'             => 'nullable',
             'status_pagamento'  => 'nullable',
-            'forma_pagamento'   => 'nullable',
+            //'forma_pagamento'   => 'nullable',
             'status_servico'    => 'nullable',
             'obs'               => 'nullable',
         ]);
@@ -125,10 +125,10 @@ class ServicosController extends Controller
             'tempo_total'       => $tempo_total,
             'cliente_id'        => $request->cliente_id,
             'descricao'         => $request->descricao,
-            'categoria_servico' => $request->categoria_servico,
+            //'categoria_servico' => $request->categoria_servico,
             'valor'             => $request->valor,
             'status_pagamento'  => $request->status_pagamento,
-            'forma_pagamento'   => $request->forma_pagamento,
+            //'forma_pagamento'   => $request->forma_pagamento,
             'status_servico'    => $request->status_servico,
             'obs'               => $request->obs,
         ]);

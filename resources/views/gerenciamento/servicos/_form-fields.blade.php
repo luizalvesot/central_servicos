@@ -4,7 +4,7 @@
         <div class="form-group">
             <label for="inicio"><strong>Início </strong><strong class="text-danger"> *</strong></label>
             <input type="datetime-local" 
-                    class="form-control border rounded @error('inicio') is-invalid @enderror" 
+                    class="form-control border rounded @error('inicio') is-invalid @enderror py-1" 
                     id="inicio" 
                     name="inicio"
                     value="{{ old('inicio', isset($servico->inicio) ? \Carbon\Carbon::parse($servico->inicio)->format('Y-m-d\TH:i') : now()->format('Y-m-d\TH:i')) }}"
@@ -22,7 +22,7 @@
         <div class="form-group">
             <label for="termino"><strong>Término </strong></label>
             <input type="datetime-local" 
-                    class="form-control border rounded @error('termino') is-invalid @enderror" 
+                    class="form-control border rounded @error('termino') is-invalid @enderror py-1" 
                     id="termino" 
                     name="termino" 
                     value="{{ old('termino', isset($servico->termino) ? \Carbon\Carbon::parse($servico->termino)->format('Y-m-d\TH:i') : now()->format('Y-m-d\TH:i')) }}"
@@ -40,11 +40,34 @@
         <div class="form-group">
             <label for="tempo_total"><strong>Tempo Total </strong></label>
             <input type="text" 
-                    class="form-control border rounded" 
+                    class="form-control border rounded py-1" 
                     id="tempo_total" 
                     name="tempo_total" 
                     value="{{ $servico->tempo_total ?? old('tempo_total') }}" disabled
             >
+        </div>
+    </div>
+    <div class="col-md mb-1">
+        <div class="form-group">
+            <label for="status_servico"><strong>Status do serviço </strong></label>
+            <select id="status_servico" 
+                name="status_servico" 
+                class="form-control border rounded @error('status_servico') is-invalid @enderror py-1"
+            >
+                <option value="">-- Selecione o status do serviço --</option>
+                <option value="aberto" {{ (isset($servico) && $servico->status_servico == 'aberto') ? 'selected' : '' }}>
+                    Aberto
+                </option>
+                <option value="concluido" {{ (isset($servico) && $servico->status_servico == 'concluido') ? 'selected' : '' }}>
+                    Concluído
+                </option>
+            </select>
+
+            @error('status_servico')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
         </div>
     </div>
 </div>
@@ -55,7 +78,7 @@
             <label for="cliente"><strong>Cliente </strong><strong class="text-danger"> *</strong></label>
             <select id="cliente" 
                     name="cliente_id" 
-                    class="form-control border rounded @error('cliente_id') is-invalid @enderror"
+                    class="form-control border rounded @error('cliente_id') is-invalid @enderror py-1"
             >
                 <option value="">-- Selecione um cliente --</option>
                 @foreach($clientes as $clienteOption)
@@ -74,17 +97,40 @@
         </div>
     </div>
     <!---->
-    <div class="col-md">
+    <div class="col-md-4 mb-1">
         <div class="form-group">
-            <label for="descricao"><strong>Descrição do serviço </strong><strong class="text-danger"> *</strong></label>
-            <input type="text" 
-                class="form-control border rounded @error('descricao') is-invalid @enderror" 
-                id="descricao" 
-                name="descricao" 
-                value="{{ $servico->descricao ?? old('descricao') }}"
+            <label for="valor"><strong>Valor do serviço</strong></label>
+            <input type="number" 
+                step="0.01" 
+                class="form-control border rounded @error('valor') is-invalid @enderror py-1" 
+                id="valor" name="valor" 
+                value="{{ $servico->valor ?? old('valor') }}">
+            
+            @error('valor')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
+        </div>
+    </div>
+    <!---->
+    <div class="col-md-2 mb-1">
+        <div class="form-group">
+            <label for="status_pagamento"><strong>Status Pagamento</strong></label>
+            <select id="status_pagamento" 
+                    name="status_pagamento" 
+                    class="form-control border rounded @error('status_pagamento') is-invalid @enderror py-1"
             >
+                <option value="">-- Selecione o status de pagamento --</option>
+                <option value="aberta" {{ (isset($servico) && $servico->status_pagamento == 'aberta') ? 'selected' : '' }}>
+                    Aberta
+                </option>
+                <option value="pago" {{ (isset($servico) && $servico->status_pagamento == 'pago') ? 'selected' : '' }}>
+                    Pago
+                </option>
+            </select>
 
-            @error('descricao')
+            @error('status_pagamento')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
                 </span>
@@ -93,7 +139,7 @@
     </div>
 </div>
 
-<div class="row my-2">
+{{--<div class="row my-2">
     <div class="col-md mb-1">
         <div class="form-group">
             <label for="categoria"><strong>Categoria </strong><strong class="text-danger"> *</strong></label>
@@ -117,51 +163,10 @@
             @enderror
         </div>
     </div>
-    <!---->
-    <div class="col-md mb-1">
-        <div class="form-group">
-            <label for="valor"><strong>Valor do serviço</strong></label>
-            <input type="number" 
-                step="0.01" 
-                class="form-control border rounded @error('valor') is-invalid @enderror" 
-                id="valor" name="valor" 
-                value="{{ $servico->valor ?? old('valor') }}">
-            
-            @error('valor')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-            @enderror
-        </div>
-    </div>
-    <!---->
-    <div class="col-md mb-1">
-        <div class="form-group">
-            <label for="status_pagamento"><strong>Status Pagamento</strong></label>
-            <select id="status_pagamento" 
-                    name="status_pagamento" 
-                    class="form-control border rounded @error('status_pagamento') is-invalid @enderror"
-            >
-                <option value="">-- Selecione o status de pagamento --</option>
-                <option value="aberta" {{ (isset($servico) && $servico->status_pagamento == 'aberta') ? 'selected' : '' }}>
-                    Aberta
-                </option>
-                <option value="pago" {{ (isset($servico) && $servico->status_pagamento == 'pago') ? 'selected' : '' }}>
-                    Pago
-                </option>
-            </select>
-
-            @error('status_pagamento')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-            @enderror
-        </div>
-    </div>
-</div>
+</div>--}}
 
 <div class="row my-2">
-    <div class="col-md mb-1">
+{{--    <div class="col-md mb-1">
         <div class="form-group">
             <label for="forma_pagamento"><strong>Forma de pagamento </strong></label>
             <select id="forma_pagamento_id" 
@@ -183,25 +188,19 @@
                 </span>
             @enderror
         </div>
-    </div>
+    </div>--}}
     <!---->
-    <div class="col-md mb-1">
+    <div class="col-md">
         <div class="form-group">
-            <label for="status_servico"><strong>Status do serviço </strong></label>
-            <select id="status_servico" 
-                name="status_servico" 
-                class="form-control border rounded @error('status_servico') is-invalid @enderror"
+            <label for="descricao"><strong>Descrição do serviço </strong><strong class="text-danger"> *</strong></label>
+            <input type="text" 
+                class="form-control border rounded @error('descricao') is-invalid @enderror py-1" 
+                id="descricao" 
+                name="descricao" 
+                value="{{ $servico->descricao ?? old('descricao') }}"
             >
-                <option value="">-- Selecione o status do serviço --</option>
-                <option value="aberto" {{ (isset($servico) && $servico->status_servico == 'aberto') ? 'selected' : '' }}>
-                    Aberto
-                </option>
-                <option value="concluido" {{ (isset($servico) && $servico->status_servico == 'concluido') ? 'selected' : '' }}>
-                    Concluído
-                </option>
-            </select>
 
-            @error('status_servico')
+            @error('descricao')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
                 </span>

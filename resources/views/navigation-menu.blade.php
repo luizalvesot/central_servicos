@@ -17,11 +17,11 @@
                     </x-nav-link>
                 </div>
 
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                {{--<div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link class="text-white" href="{{ route('categoriaServicos.show') }}" :active="request()->routeIs('categoriaServicos.show')">
                         {{ __('Categorias de servicos') }}
                     </x-nav-link>
-                </div>
+                </div>--}}
                 
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link class="text-white" href="{{ route('clientes.show') }}" :active="request()->routeIs('clientes.show')">
@@ -155,9 +155,9 @@
                 {{ __('Página inicial') }}
             </x-responsive-nav-link>
 
-            <x-responsive-nav-link class="text-secondary" href="{{ route('categoriaServicos.show') }}" :active="request()->routeIs('categoriaServicos.show')">
+            {{--<x-responsive-nav-link class="text-secondary" href="{{ route('categoriaServicos.show') }}" :active="request()->routeIs('categoriaServicos.show')">
                 {{ __('Categorias de servicos') }}
-            </x-responsive-nav-link>
+            </x-responsive-nav-link>--}}
 
             <x-responsive-nav-link class="text-secondary" href="{{ route('clientes.show') }}" :active="request()->routeIs('clientes.show')">
                 {{ __('Clientes') }}
