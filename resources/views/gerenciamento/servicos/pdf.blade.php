@@ -106,6 +106,12 @@
             font-weight: bold;
         }
 
+        .rel {
+            text-align: center;
+            font-size: 10px;
+            color: #555;
+        }
+
         /* Rodapé */
         .footer {
             position: fixed;
@@ -165,12 +171,12 @@
     <p><strong>Tempo total: {{ sprintf('%02d:%02d', floor($servicos->sum('tempo_total') / 60), $servicos->sum('tempo_total') % 60) }} (hrs)</strong></p>
     <p><strong>Valor Total: R$ {{ number_format($servicos->sum('valor'), 2, ',', '.') }}</strong></p>
 
+    <p class="rel">Relatório gerado automaticamente pelo sistema</p>
+
     <div class="footer">
         E-mail: flavio.imidio@hotmail.com<br>
         Celular: (35) 9 9814-4067 (Flávio)<br>
                  (35) 9 9707-9349 (Enzo) <br>
-
-        <p>Relatório gerado automaticamente pelo sistema</p><br>
         Página <span class="pagenum"></span>
     </div>
 </body>
