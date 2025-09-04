@@ -42,9 +42,9 @@
                 </select>
             </div>
             <div class="col-md mt-auto mb-1 text-end">
-                <a href="{{ route('servicos.pdf', request()->all()) }}" class="btn btn-danger">
+                <button wire:click="exportarPdf" class="btn btn-danger">
                     <i class="bi bi-file-earmark-pdf"></i> Baixar PDF
-                </a>
+                </button>
             </div>
         </div>
     </form>
@@ -92,7 +92,7 @@
             <div class="card shadow m-1 bg-gray-800 text-white text-center">
                 <div class="card-body">
                     <h5 class="card-title h5">Tempo total</h5>
-                    <p class="card-text">{{sprintf('%02d:%02d', $horas, $minutos)}}</p>
+                    <p class="card-text">{{sprintf('%02d:%02d', $horas, $minutos)}} (hrs)</p>
                 </div>
             </div> 
         </div>
@@ -130,7 +130,7 @@
                         <td>{{ \Carbon\Carbon::parse($servico->termino)->format('d/m/Y H:i') }}</td>
                         <td>
                             @if($servico->tempo_total)
-                                {{ sprintf('%02d:%02d', floor($servico->tempo_total / 60), $servico->tempo_total % 60) }}
+                                {{ sprintf('%02d:%02d', floor($servico->tempo_total / 60), $servico->tempo_total % 60) }} (hrs)
                             @else
                                 -
                             @endif

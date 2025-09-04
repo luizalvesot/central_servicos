@@ -152,34 +152,40 @@ class ServicosController extends Controller
         $servico->delete();
     }
 
-    public function exportarPdf(Request $request)
+   public function exportarPdf(Request $request)
     {
-        $query = Servico::query();
+        $query = Servico::query()->with('cliente');
 
-        if ($request->inicio) {
+        if ($request->filled('inicio')) {
             $query->where('inicio', '>=', $request->inicio);
         }
-        if ($request->termino) {
+
+        if ($request->filled('termino')) {
             $query->where('termino', '<=', $request->termino);
         }
-        if ($request->descricao) {
+
+        if ($request->filled('descricao')) {
             $query->where('descricao', 'like', "%{$request->descricao}%");
         }
-        if ($request->cliente) {
+
+        if ($request->filled('cliente')) {
             $query->whereHas('cliente', function($q) use ($request) {
                 $q->where('nome_cliente', 'like', "%{$request->cliente}%");
             });
         }
-        if ($request->status_pagamento) {
+
+        if ($request->filled('status_pagamento')) {
             $query->where('status_pagamento', $request->status_pagamento);
         }
-        if ($request->status_servico) {
+
+        if ($request->filled('status_servico')) {
             $query->where('status_servico', $request->status_servico);
         }
 
-        $servicos = $query->with('cliente')->get();
+        $servicos = $query->get();
 
-        $pdf = Pdf::loadView('gerenciamento.servicos.pdf', compact('servicos'));
+        $pdf = \Barryvdh\DomPDF\Facade\Pdf::loadView('gerenciamento.servicos.pdf', compact('servicos'));
         return $pdf->download('relatorio-servicos.pdf');
     }
+
 }
