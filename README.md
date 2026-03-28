@@ -12,17 +12,13 @@ Um sistema web intuitivo e clean para eletricistas gerenciarem seus clientes, or
 
 ---
 
-## Demonstração
+## 📹 Demonstração
 
-Veja o sistema em funcionamento:
+Reproduza o vídeo direto no README:
 
-<div align="center">
+https://github.com/luizalvesot/central_servicos/assets/videos/demonstracao_central_servicos.mp4
 
-[![Assistir Demonstração no Google Drive](https://img.shields.io/badge/▶%20Assistir%20Demonstração-Google%20Drive-1f77e3?style=for-the-badge&logo=googledrive)](https://drive.google.com/file/d/1mKW-Z2TdSjJ89_ZxU8VPH9fn5nH9YcCx/view?usp=sharing)
-
-</div>
-
-> **📌 Nota:** O vídeo está hospedado no Google Drive para melhor compatibilidade. Clique no badge acima para assistir a uma demonstração completa do sistema em ação!
+**Ou visualize no Google Drive:** [Clique aqui](https://drive.google.com/file/d/1mKW-Z2TdSjJ89_ZxU8VPH9fn5nH9YcCx/view?usp=sharing)
 
 ---
 
