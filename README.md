@@ -1,61 +1,290 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# ⚡ Central de Serviços - Sistema de Gestão para Eletricistas
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+<div align="center">
 
-## About Laravel
+[![Laravel](https://img.shields.io/badge/Laravel-12.x-FF2D20?style=flat&logo=laravel)](https://laravel.com)
+[![PHP](https://img.shields.io/badge/PHP-8.3-777BB4?style=flat&logo=php)](https://www.php.net/)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Status](https://img.shields.io/badge/Status-Ativo-brightgreen.svg)](https://github.com/luizalvesot/central_servicos)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Um sistema web intuitivo e clean para eletricistas gerenciarem seus clientes, ordens de serviço e gerar documentation profissional em PDF.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+[Demo em Vídeo](#-demonstração) • [Recursos](#-recursos) • [Instalação](#-instalação) • [Stack Técnico](#-stack-técnico)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+</div>
 
-## Learning Laravel
+---
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## 📹 Demonstração
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+Veja o sistema em ação:
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+<video width="100%" controls>
+  <source src="./demonstacao.mkv" type="video/x-matroska">
+  Seu navegador não suporta a tag video.
+</video>
 
-## Laravel Sponsors
+**Nota:** Se o vídeo acima não funcionar, acesse diretamente: `demonstacao.mkv`
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+---
 
-### Premium Partners
+## 🎯 Sobre o Projeto
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+Este é um projeto de portfólio que demonstra como criar uma **aplicação web prática e user-friendly** para profissionais autônomos sem experiência técnica.
 
-## Contributing
+O sistema foi desenvolvido para um eletricista que precisava de uma solução simples, clean e eficiente para:
+- ✅ Gerenciar base de dados de clientes
+- ✅ Criar e organizar ordens de serviço
+- ✅ Gerar relatórios profissionais em PDF
+- ✅ Acompanhar serviços e gerar insights com filtros customizáveis
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+**Foco:** Simplicidade, usabilidade e produtividade.
 
-## Code of Conduct
+---
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## 🚀 Recursos
 
-## Security Vulnerabilities
+### 👤 Autenticação
+- Login seguro com validação de credenciais
+- Sessão persistente e logout
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### 📋 Gestão de Clientes
+- Cadastro completo de clientes (nome, telefone, endereço, etc.)
+- Listagem com busca e filtros
+- Edição e visualização de informações
+- Exclusão segura com confirmação
 
-## License
+### 📦 Ordens de Serviço
+- Criação rápida de OS vinculadas a clientes
+- Visualização organizada com status
+- Filtros por cliente, período, status
+- Edição e rastreamento de cada ordem
+- Assinatura digital do cliente na ordem
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### 📊 Relatórios & Insights
+- Dashboard com números-chave (total de serviços, receita, clientes)
+- Filtros dinâmicos por período
+- Visualização de dados resumidos
+- Exportação de dados em PDF
+
+### 🖨️ Geração de PDF
+- Ordens de serviço profissionais em PDF
+- Dados customizáveis por cliente e período
+- Design clean e pronto para impressão
+- Espaço para assinatura do cliente
+
+---
+
+## 🛠️ Stack Técnico
+
+### Backend
+- **Laravel 12** - Framework PHP moderno e robusto
+- **MySQL/MariaDB** - Banco de dados relacional
+- **Livewire** - Componentes dinâmicos em tempo real (opcional)
+- **DomPDF** - Geração de PDFs
+
+### Frontend
+- **Blade** - Template engine do Laravel
+- **Tailwind CSS** - Styling utilitário e responsivo
+- **Alpine.js** - Interatividade leve no frontend
+- **Vite** - Build tool moderno
+
+### DevOps
+- **Docker** - Containerização
+- **Docker Compose** - Orquestração de serviços
+
+---
+
+## 📋 Requisitos
+
+- **PHP** 8.3 ou superior
+- **Composer** para gerenciar dependências PHP
+- **Node.js** 18+ e **npm** para assets frontend
+- **MySQL** 8.0 ou **MariaDB** 10.4+
+- **Docker & Docker Compose** (opcional, para ambiente containerizado)
+
+---
+
+## ⚙️ Instalação
+
+### Opção 1: Com Docker (Recomendado)
+
+```bash
+# 1. Clonar o repositório
+git clone https://github.com/luizalvesot/central_servicos.git
+cd central_servicos/apps/central_servicos
+
+# 2. Iniciar containers
+docker compose up -d
+
+# 3. Entrar no container PHP
+docker compose exec app bash
+
+# 4. Instalar dependências do Laravel
+composer install
+
+# 5. Gerar chave de aplicação
+php artisan key:generate
+
+# 6. Executar migrações do banco de dados
+php artisan migrate
+
+# 7. Plantar dados iniciais (opcional)
+php artisan db:seed
+
+# 8. Instalar dependências Frontend
+npm install && npm run build
+
+# 9. Acessar a aplicação
+# Abra seu navegador em http://localhost:8000
+```
+
+### Opção 2: Instalação Local
+
+```bash
+# 1. Clonar repositório
+git clone https://github.com/luizalvesot/central_servicos.git
+cd central_servicos/apps/central_servicos/src/central_servicos
+
+# 2. Instalar dependências
+composer install
+npm install
+
+# 3. Configurar ambiente
+cp .env.example .env
+php artisan key:generate
+
+# 4. Configurar banco de dados no .env
+# Edite DB_HOST, DB_DATABASE, DB_USERNAME, DB_PASSWORD
+
+# 5. Executar migrações
+php artisan migrate
+
+# 6. Compilar assets
+npm run build
+
+# 7. Iniciar servidor
+php artisan serve
+```
+
+---
+
+## 🎮 Como Usar
+
+### 1️⃣ Fazer Login
+```
+Acesse: http://localhost:8000/login
+Use suas credenciais configuradas
+```
+
+### 2️⃣ Cadastrar Clientes
+```
+Menu → Clientes → Novo Cliente
+Preencha nome, telefone, endereço, email
+Salve para aparecer na lista
+```
+
+### 3️⃣ Criar Ordem de Serviço
+```
+Menu → Ordens de Serviço → Nova OS
+Selecione cliente
+Descreva serviço, valor e data
+Salve e acompanhe o status
+```
+
+### 4️⃣ Gerar Relatórios
+```
+Menu → Relatórios
+Aplique filtros (período, cliente)
+Visualize números e insights
+```
+
+### 5️⃣ Exportar para PDF
+```
+Na listagem de OS → Gerar PDF
+Escolha período/cliente
+PDF será baixado pronto para imprimir
+```
+
+---
+
+## 📁 Estrutura do Projeto
+
+```
+central_servicos/
+├── app/
+│   ├── Actions/          # Ações reutilizáveis
+│   ├── Http/
+│   │   ├── Controllers/  # Controladores
+│   │   └── Requests/     # Validação de entrada
+│   ├── Livewire/         # Componentes Livewire
+│   ├── Models/           # Modelos Eloquent
+│   └── Policies/         # Autorização
+├── routes/
+│   ├── web.php          # Rotas web
+│   └── api.php          # Rotas API (se houver)
+├── resources/
+│   ├── views/           # Templates Blade
+│   ├── css/             # Estilos Tailwind
+│   └── js/              # Scripts frontend
+├── database/
+│   ├── migrations/       # Migrações do BD
+│   └── seeders/         # Seeders para dados iniciais
+├── storage/             # Cache, logs, uploads
+├── docker-compose.yml   # Configuração Docker
+├── tailwind.config.js   # Config Tailwind
+└── vite.config.js       # Config Vite
+```
+
+---
+
+## 🧪 Testes
+
+```bash
+# Executar testes unitários
+php artisan test
+
+# Com cobertura de código
+php artisan test --coverage
+```
+
+---
+
+## 🤝 Contribuições
+
+Sugestões e melhorias são bem-vindas! Sinta-se à vontade para:
+- Abrir uma [Issue](https://github.com/luizalvesot/central_servicos/issues)
+- Fazer um [Pull Request](https://github.com/luizalvesot/central_servicos/pulls)
+
+---
+
+## 📝 Licença
+
+Este projeto é licenciado sob a Licença MIT - veja [LICENSE](LICENSE) para detalhes.
+
+---
+
+## 👨‍💻 Autor
+
+**Luiz Alves**
+
+- GitHub: [@luizalvesot](https://github.com/luizalvesot)
+- Portfólio: [Seu site aqui]
+
+---
+
+## 🙏 Agradecimentos
+
+- [Laravel](https://laravel.com) - Framework incrível
+- [Tailwind CSS](https://tailwindcss.com) - Styling elegante
+- [DomPDF](https://dompdf.github.io/) - Geração de PDFs
+
+---
+
+<div align="center">
+
+**[⬆ Voltar ao topo](#-central-de-serviços---sistema-de-gestão-para-eletricistas)**
+
+Feito com ❤️ por Luiz Alves
+
+</div>
