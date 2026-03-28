@@ -8,8 +8,6 @@
 
 Um sistema web intuitivo e clean para eletricistas gerenciarem seus clientes, ordens de serviço e gerar ordem em PDF.
 
-[Demo em Vídeo](#-demonstração) • [Recursos](#-recursos) • [Instalação](#-instalação) • [Stack Técnico](#-stack-técnico)
-
 </div>
 
 ---
@@ -19,7 +17,7 @@ Um sistema web intuitivo e clean para eletricistas gerenciarem seus clientes, or
 Veja o sistema em ação:
 
 <video width="100%" controls>
-  <source src="./demonstacao.mkv" type="video/x-matroska">
+  <source src="https://drive.google.com/file/d/1mKW-Z2TdSjJ89_ZxU8VPH9fn5nH9YcCx/view?usp=sharing" type="video/x-matroska">
   Seu navegador não suporta a tag video.
 </video>
 
