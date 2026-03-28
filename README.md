@@ -14,14 +14,15 @@ Um sistema web intuitivo e clean para eletricistas gerenciarem seus clientes, or
 
 ## Demonstração
 
-Veja o sistema em ação:
+Veja o sistema em funcionamento:
 
-<video width="100%" controls>
-  <source src="https://drive.google.com/file/d/1mKW-Z2TdSjJ89_ZxU8VPH9fn5nH9YcCx/view?usp=sharing" type="video/x-matroska">
-  Seu navegador não suporta a tag video.
-</video>
+<div align="center">
 
-**Nota:** Se o vídeo acima não funcionar, acesse diretamente: `demonstacao.mkv`
+[![Assistir Demonstração no Google Drive](https://img.shields.io/badge/▶%20Assistir%20Demonstração-Google%20Drive-1f77e3?style=for-the-badge&logo=googledrive)](https://drive.google.com/file/d/1mKW-Z2TdSjJ89_ZxU8VPH9fn5nH9YcCx/view?usp=sharing)
+
+</div>
+
+> **📌 Nota:** O vídeo está hospedado no Google Drive para melhor compatibilidade. Clique no badge acima para assistir a uma demonstração completa do sistema em ação!
 
 ---
 
