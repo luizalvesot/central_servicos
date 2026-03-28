@@ -16,7 +16,7 @@ Um sistema web intuitivo e clean para eletricistas gerenciarem seus clientes, or
 
 Reproduza o vídeo direto no README:
 
-https://github.com/luizalvesot/central_servicos/assets/videos/demonstracao_central_servicos.mp4
+https://github.com/luizalvesot/central_servicos/demonstracao_central_servicos.mp4
 
 **Ou visualize no Google Drive:** [Clique aqui](https://drive.google.com/file/d/1mKW-Z2TdSjJ89_ZxU8VPH9fn5nH9YcCx/view?usp=sharing)
 
